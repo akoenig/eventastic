@@ -53,6 +53,30 @@ const app = async() => {
 };
 ```
 
+### Projections
+
+```typescript
+
+import createEventStore from "eventastic";
+import createProjection, { when } from "eventastic/projection";
+
+const app = async() => {
+    const es = await createEventStore({
+        host: 'localhost',
+        port: 32793
+    });
+
+    const UserCount = createProjection(
+        when('UserRegisteredEvent', (count: number, event: IEvent<IUser>) => count++),
+        when('UserUnregisteredEvent', (count: number, event: IEvent<IUser>) => count--)
+    );
+
+    const registeredUserCount = await es.project(UserCount);
+
+    console.log(`We have ${registeredUserCount} user(s). Yay!`);
+};
+```
+
 # License
 
 MIT © [André König](http://andrekoenig.de)

@@ -20,6 +20,8 @@ import { IEvent } from "./types";
 import commit from "./commit";
 import changes from "./changes";
 import createEvent from "./event";
+import project from "./project";
+import createProjection, { IProjectionHandler, when } from "./projection";
 import setup from "./setup";
 
 export interface IEventStoreOptions {
@@ -54,9 +56,10 @@ const createEventStore = async ({host, port, databaseName = "eventastic", tableN
 
     return {
         commit: commit({ connection, databaseName, tableName }),
-        changes: changes({ connection, databaseName, tableName })
+        changes: changes({ connection, databaseName, tableName }),
+        project: (projection: IProjectionHandler[], initialState: any[] | {}) => project({ connection, databaseName, tableName }, projection, initialState)
     };
 };
 
-export { createEvent, IEvent };
+export { createEvent, IEvent, createProjection, IProjectionHandler, when };
 export default createEventStore;
