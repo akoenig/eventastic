@@ -1,6 +1,6 @@
 # eventastic
 
-An event store on top of RethinkDB.
+[WIP] An event store on top of RethinkDB.
 
 ## Usage
 
@@ -8,17 +8,48 @@ An event store on top of RethinkDB.
 import createEventStore, { createEvent } from "eventastic";
 
 const app = async () => {
-
-    const store = await createEventStore({
-        host: '',
-        port: 28015,
-        user: '',
-        password: ''
+    const es = await createEventStore({
+        host: 'localhost',
+        port: 32793
     });
 
-    const UserRegisteredEvent = createEvent('UserRegisteredEvent');
+    const user: IUser = {
+        username: "akoenig",
+        firstname: "André",
+        lastname: "König",
+        email: "andre.koenig@posteo.de",
+        password: "e3b0c4....",
+        salt: "852b85...."
+    };
 
-    await store.commit(UserRegisteredEvent({name: 'André'}));
+    const UserRegisteredEvent = createEvent<IUser>('UserRegisteredEvent');
+
+    await es.commit(UserRegisteredEvent(user));
+};
+```
+
+### Changefeed
+
+`eventastic` comes with a changefeed implementation which allows to further processing when an event has been persisted (e. g. publish to message broker, etc.).
+
+```typescript
+import createEventStore, { createEvent } from "eventastic";
+
+const app = async() => {
+    const es = await createEventStore({
+        host: 'localhost',
+        port: 32793
+    });
+
+    await es.changes((err: Error, event: IEvent<any>) => {
+        if (err) {
+            // Handle error ...
+        }
+
+        console.log(`A new event has been persisted: ${JSON.stringify(event)}.`);
+
+        // Publish to message broker etc. ...
+    });
 };
 ```
 
