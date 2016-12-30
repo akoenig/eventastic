@@ -14,12 +14,14 @@
   },
   "devDependencies": {
     "@types/debug": "^0.0.29",
+    "@types/lodash": "^4.14.45",
     "@types/rethinkdb": "^2.3.1",
     "@types/verror": "^1.9.1",
     "typescript": "^2.1.4"
   },
   "dependencies": {
     "debug": "^2.6.0",
+    "lodash": "^4.17.3",
     "rethinkdb": "^2.3.3",
     "verror": "^1.9.0"
   }

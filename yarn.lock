@@ -6,6 +6,10 @@
   version "0.0.29"
   resolved "https://registry.yarnpkg.com/@types/debug/-/debug-0.0.29.tgz#a1e514adfbd92f03a224ba54d693111dbf1f3754"
 
+"@types/lodash@^4.14.45":
+  version "4.14.45"
+  resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.14.45.tgz#db20238f23fa195d6fb8f9ff7988e8651fc8c302"
+
 "@types/node@*":
   version "6.0.55"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-6.0.55.tgz#e5cb679a43561f42afd1bd6d58d3992ec8f31720"
@@ -41,6 +45,10 @@ debug@^2.6.0:
 extsprintf@^1.2.0:
   version "1.3.0"
   resolved "https://registry.yarnpkg.com/extsprintf/-/extsprintf-1.3.0.tgz#96918440e3041a7a414f8c52e3c574eb3c3e1e05"
+
+lodash@^4.17.3:
+  version "4.17.3"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.3.tgz#557ed7d2a9438cac5fd5a43043ca60cb455e01f7"
 
 ms@0.7.2:
   version "0.7.2"
