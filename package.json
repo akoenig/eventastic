@@ -4,7 +4,11 @@
   "author": "André König <andre.koenig@psoteo.de>",
   "license": "MIT",
   "scripts": {
-    "dev": "./scripts/dev"
+    "dev": "./scripts/dev",
+    "test": "./scripts/test",
+    "setup": "./scripts/setup",
+    "compile": "./scripts/compile",
+    "nyc": "./scripts/nyc"
   },
   "main": "./dist/index.js",
   "typings": "./dist/index.d.ts",
@@ -17,6 +21,8 @@
     "@types/lodash": "^4.14.45",
     "@types/rethinkdb": "^2.3.1",
     "@types/verror": "^1.9.1",
+    "ava": "^0.17.0",
+    "nyc": "^10.0.0",
     "typescript": "^2.1.4"
   },
   "dependencies": {

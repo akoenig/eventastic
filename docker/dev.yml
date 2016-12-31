@@ -1,0 +1,8 @@
+version: '2'
+
+services:
+    compiler:
+      image: "node:6-alpine"
+      command: "sh -c 'npm i -g nodemon && cd /app && npm run setup && nodemon --exec \"npm run compile && npm run nyc\" --watch ./src -e \"ts\"'"
+      volumes:
+        - "../:/app/"

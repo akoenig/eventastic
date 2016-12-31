@@ -19,9 +19,9 @@ import { IEvent } from "./types";
 
 import commit from "./commit";
 import changes from "./changes";
-import createEvent from "./event";
+import createEvent from "./createEvent";
 import project from "./project";
-import createProjection, { IProjectionHandler, when } from "./projection";
+import createProjection, { IProjectionHandler, when } from "./createProjection";
 import setup from "./setup";
 
 export interface IEventStoreOptions {

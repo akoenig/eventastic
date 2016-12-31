@@ -16,7 +16,7 @@ import VError = require('verror');
 import { Connection, db } from "rethinkdb";
 
 import { IEvent } from "./types";
-import { IProjectionHandler } from "./projection";
+import { IProjectionHandler } from "./createProjection";
 
 export interface IProjectOptions {
     connection: Connection;
@@ -32,6 +32,7 @@ const project = async <State>(options: IProjectOptions, projection: IProjectionH
 
     let state = initialState;
     let hasNext = true;
+
 
     do {
         try {

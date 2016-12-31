@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+
+nyc --lines 95 --functions 95 --branches 95 ava \
+  --concurrency=5 \
+  ./dist/**/*.spec.js

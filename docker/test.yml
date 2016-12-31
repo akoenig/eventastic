@@ -1,0 +1,8 @@
+version: '2'
+
+services:
+    compiler:
+      image: "node:6-alpine"
+      command: "sh -c 'cd /app && npm run setup && npm run compile && npm run nyc'"
+      volumes:
+        - "../:/app/"
