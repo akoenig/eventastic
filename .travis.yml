@@ -2,4 +2,4 @@ services:
   - docker
 
 script:
-  - docker-compose -p eventastic -f ./docker/test.yml
+  - docker-compose -p eventastic -f ./docker/test.yml up
