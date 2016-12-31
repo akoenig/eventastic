@@ -1,4 +1,4 @@
-# eventastic
+# eventastic [![Build Status](https://travis-ci.org/akoenig/eventastic.svg?branch=master)](https://travis-ci.org/akoenig/eventastic)
 
 [WIP] An event store on top of RethinkDB.
 
