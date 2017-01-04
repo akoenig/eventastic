@@ -1,0 +1,9 @@
+/coverage
+/docker
+/scripts
+/src
+/.editorconfig
+/.travis.yml
+/.nyc_output
+/tsconfig.json
+/yarn.lock
