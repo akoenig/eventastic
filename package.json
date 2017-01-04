@@ -1,6 +1,6 @@
 {
   "name": "eventastic",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "author": "André König <andre.koenig@psoteo.de>",
   "license": "MIT",
   "scripts": {
