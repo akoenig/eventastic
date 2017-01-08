@@ -30,7 +30,7 @@ const app = async () => {
 
 ### Changefeed
 
-`eventastic` comes with a changefeed implementation which allows for further processing the event after it has been persisted (e. g. publish to message broker, etc.).
+`eventastic` comes with a changefeed implementation which allows further processing of the event after it has been persisted (e. g. publish to message broker, etc.).
 
 ```typescript
 import createEventStore, { createEvent } from "eventastic";
