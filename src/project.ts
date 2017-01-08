@@ -27,8 +27,7 @@ export interface IProjectOptions {
 const project = async <State>(options: IProjectOptions, projection: IProjectionHandler[], initialState: State): Promise<State> => {
     const {connection, databaseName, tableName} = options;
 
-
-    const events = await db(databaseName).table(tableName).run(connection);
+    const events = await db(databaseName).table(tableName).orderBy("createdAt").run(connection);
 
     let state = initialState;
     let hasNext = true;
