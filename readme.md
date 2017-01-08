@@ -1,6 +1,20 @@
 # eventastic [![Build Status](https://travis-ci.org/akoenig/eventastic.svg?branch=master)](https://travis-ci.org/akoenig/eventastic)
 
-[WIP] An event store on top of RethinkDB.
+An event store on top of RethinkDB.
+
+## Installation
+
+**Important:** Please not that this is alpha software and currently a _work in progress_. API may change in the next releases. Nevertheless, I encourage you to give it a test drive and provide feedback how you like it :)
+
+```sh
+npm i --save eventastic
+```
+
+or if you are using `yarn`:
+
+```sh
+yarn add eventastic
+```
 
 ## Usage
 

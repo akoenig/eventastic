@@ -12,6 +12,7 @@
  */
 
 interface IEvent<Payload> {
+    createdAt?: string;
     type: string;
     payload: Payload
 }
