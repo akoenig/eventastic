@@ -25,6 +25,8 @@ export interface ICommitOptions {
 
 const commit = ({connection, databaseName, tableName}: ICommitOptions) => async <T>(event: IEvent<T>) => {
     try {
+        event = { ...event, createdAt: new Date().toISOString() };
+
         await db(databaseName).table(tableName).insert(event).run(connection);
     } catch (err) {
         throw new VError(err, `failed to commit event: ${JSON.stringify(event)}`);

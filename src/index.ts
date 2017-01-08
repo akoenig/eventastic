@@ -57,7 +57,8 @@ const createEventStore = async ({host, port, databaseName = "eventastic", tableN
     return {
         commit: commit({ connection, databaseName, tableName }),
         changes: changes({ connection, databaseName, tableName }),
-        project: (projection: IProjectionHandler[], initialState: any[] | {}) => project({ connection, databaseName, tableName }, projection, initialState)
+        project: (projection: IProjectionHandler[], initialState: any[] | {}) =>
+            project({ connection, databaseName, tableName }, projection, initialState)
     };
 };
 
