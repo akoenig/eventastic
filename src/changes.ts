@@ -43,7 +43,11 @@ const changes = ({connection, databaseName, tableName}: IChangesOptions) => asyn
             return callback(new VError(err, `cursor failure while consuming a change`));
         }
 
-        callback(null, omit(change.new_val, ["id"]));
+        // TODO: Investigate why the change object is sometimes empty.
+        // see: https://github.com/akoenig/eventastic/issues/2
+        if (Object.keys(change).length) {
+            callback(null, omit(change.new_val, ["id"]));
+        }
     });
 };
 
