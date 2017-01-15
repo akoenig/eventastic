@@ -91,6 +91,24 @@ const app = async() => {
 };
 ```
 
+### Replay all events
+
+```typescript
+import createEventStore from "eventastic";
+
+const app = async() => {
+    const es = await createEventStore({
+        host: 'localhost',
+        port: 32793
+    });
+
+    await es.replay(event => {
+        // Do something with the event
+    });
+
+    console.log(`We have ${registeredUserCount} user(s). Yay!`);
+};
+```
 # License
 
 MIT © [André König](http://andrekoenig.de)
