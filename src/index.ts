@@ -19,6 +19,7 @@ import { IEvent } from "./types";
 
 import commit from "./commit";
 import changes from "./changes";
+import replay from "./replay";
 import createEvent from "./createEvent";
 import project from "./project";
 import createProjection, { IProjectionHandler, when } from "./createProjection";
@@ -41,7 +42,9 @@ const createEventStore = async ({host, port, databaseName = "eventastic", tableN
             throw new VError(`The database server dropped connection`)
         });
     } catch (err) {
-        connection.close();
+        if (connection) {
+            connection.close();
+        }
 
         throw new VError(err, `failed to connect to database instance`);
     }
@@ -57,6 +60,7 @@ const createEventStore = async ({host, port, databaseName = "eventastic", tableN
     return {
         commit: commit({ connection, databaseName, tableName }),
         changes: changes({ connection, databaseName, tableName }),
+        replay: replay({ connection, databaseName, tableName }),
         project: (projection: IProjectionHandler[], initialState: any[] | {}) =>
             project({ connection, databaseName, tableName }, projection, initialState)
     };

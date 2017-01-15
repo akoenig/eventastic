@@ -32,7 +32,6 @@ const project = async <State>(options: IProjectOptions, projection: IProjectionH
     let state = initialState;
     let hasNext = true;
 
-
     do {
         try {
             const event = await new Promise<IEvent<any>>((resolve, reject) => {
